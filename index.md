@@ -1,5 +1,3 @@
-# OMSCS Notes
-
 Welcome! Current course: **CS6200 – Intro to Operating Systems**.
 
 ## Courses
