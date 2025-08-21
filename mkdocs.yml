@@ -1,0 +1,45 @@
+site_name: OMSCS Notes
+site_description: My OMSCS course notes
+site_author: Shiyuan Yang
+repo_url: https://github.com/laoyuanx/omscs
+
+theme:
+  name: material
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.tabs.link
+
+markdown_extensions:
+  - admonition
+  - pymdownx.superfences
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.details
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.arithmatex:
+      generic: true
+
+plugins:
+  - search
+  - mkdocs-katex
+  - tags
+
+nav:
+  - Home: index.md
+  - CS6200:
+      - Lectures: cs6200-operating-systems/lectures.md
+      - Readings: cs6200-operating-systems/readings.md
+      - Projects:
+          - Project 1: cs6200-operating-systems/projects/project1.md
+          - Project 2: cs6200-operating-systems/projects/project2.md
+          - Project 3: cs6200-operating-systems/projects/project3.md
+      - Exam Prep: cs6200-operating-systems/exam-prep.md
+  - Templates:
+      - Lecture Template: templates/lecture_template.md
+      - Project Template: templates/project_template.md
