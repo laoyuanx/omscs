@@ -1,16 +1,36 @@
 name: Deploy MkDocs site
+
 on:
   push:
     branches: [ main ]
+
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
+
     steps:
+      # 1️⃣ Checkout the repo and allow pushing via GITHUB_TOKEN
       - uses: actions/checkout@v4
         with:
           persist-credentials: true
+
+      # 2️⃣ Setup Python
       - uses: actions/setup-python@v5
         with:
           python-version: '3.x'
+
+      # 3️⃣ Install MkDocs and dependencies
       - run: pip install mkdocs-material pymdown-extensions
-      - run: mkdocs gh-deploy --force
+
+      # 4️⃣ Build the MkDocs site
+      - run: mkdocs build
+
+      # 5️⃣ Deploy to GitHub Pages using the built site
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v6
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./site
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'
+          force_orphan: true
